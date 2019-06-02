@@ -57,4 +57,40 @@ print("\n")
 print(jogador1 + " será o " + player1.upper())
 print(jogador2 + " será o " + player2.upper())
 
- 
+ #Função para definição das jogadas
+# O ícono já estara difinido pelos jogadores
+#A variavel 'VEZ' identifica quem é o jogador da rodada. Em caso de impar, é o player1. Em caso de par, é o player 2.
+#A cada jogada, a variavel vez aumenta 1 unidade.
+
+player1 = "x"
+player2 = "o"
+
+if vez%2 != 0:
+
+    position = int(input('Escolha sua jogada: ')) 
+    marker = player1.upper() 
+    jogada[position-1] = marker
+    print(marker)
+    print(jogada)
+    vez += 1
+    print(vez)
+else:
+    position = int(input('Escolha sua jogada: ')) 
+    marker = player2.upper() 
+    jogada[position-1] = marker
+    print(marker)
+    print(jogada)
+    vez += 1
+    print(vez)
+    
+    
+    #função que checa se há espaço livre para o jogador inserir sua jogada
+#space_check(jogada,5)  
+def space_check(jogada, position):
+    jogada = ["1",'2','3','4','X','6','O','8','9']
+  
+
+    if( jogada[position-1].isdigit()):
+        return True
+    else:
+        return False
