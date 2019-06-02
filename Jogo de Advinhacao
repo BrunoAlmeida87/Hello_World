@@ -1,0 +1,61 @@
+#Jogo de Adivinhação
+
+import random
+x = random.randint(1,100)
+#x = 8
+palpite = 8
+t = x-palpite
+tentativas = []
+#print(x)
+#print(f'o t = {t}')
+#print(x-palpite)
+print("\n")
+print("\n")
+print("Bem vindo!")
+print("\n")
+print(" -Estou pensando em um número de 1 a 100")
+print(" -Se o seu palpite estiver a 10 unidades  (absoluta) ou menos do meu número, lhe direi que está QUENTE!")
+print(" -Se o seu palpite estiver entre 11 a 20 unidades, lhe direi que está FRIO!")
+print(" -Se o seu palpite é mais próximo do que o seu palpite anterior, eu vou dizer que vocé ESTA ESFRIANDO")
+print(" -Se o seu palpite é mais for mais próximo do que o seu palpite anterior, eu vou dizer que você ESTÁ ESQUENTANDO")
+print("\n")
+print("VAMOS JOGAR!!")
+
+print("\n")
+
+nome = input("Olá jogador, por favor, me diga seu nome: ")
+print("\n")
+
+print("\n")
+print(f"Olá {nome} !! \n Vamos começar o jogo! \n Voce deverá advinhar o número de 1 a 100. \nO jogo lhe dará dicas caso esteja próximo de acertar o número.")
+
+
+while palpite != x:  
+  palpite = input("Qual o seu palpite?: ")
+  print("\n")
+  palpite = int(palpite)
+  t = x-palpite
+  if palpite < 0 or palpite > 100:
+    print(' Fora do Limite ! Tem que ser entre 0 e 100 !!')
+    print("\n")
+ 
+  elif abs(t) <= 10 and abs(t) != 0 :
+   print("Está quente!")
+   print("\n")
+   tentativas.append(palpite)
+   
+  elif abs(t) > 10 and abs(t) <30:
+   print("Está frio!") 
+   print("\n")
+   tentativas.append(palpite)
+   
+  elif abs(t) >= 30:
+   print("Tá longe bagaraaaai!") 
+   print("\n")
+   tentativas.append(palpite)
+   
+else: 
+  n = len(tentativas)
+  print("\n")
+  print(f'Parabéns! Voce acertou e levou {n} tentativas para isso !  ;)')
+  
