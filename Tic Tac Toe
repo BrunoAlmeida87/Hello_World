@@ -94,3 +94,21 @@ def space_check(jogada, position):
         return True
     else:
         return False
+        
+        
+         #função que checa se todos os espaços já foram ocupados
+    #Retorna True se tiver espaço
+    # Falso se não tiver espaço
+#space_check(jogada,5)  
+def full_board_check(board):
+    #jogada = ["a",'b','c','d','e','4','g','h','i']
+    for x in jogada:
+      if( x.isdigit() == True):
+        print(x)
+        return True
+      elif x.isdigit()== False:
+        print(x)
+       
+        continue
+    return False
+        
