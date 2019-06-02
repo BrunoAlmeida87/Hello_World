@@ -1,0 +1,59 @@
+#lista de display do tabuleiro
+# a lista jogada[] puxa o input do jogador
+#x = ['X','O']
+#if inp == 'p1'
+jogada = ['1','2','3','4','5','6','7','8','9']
+def display_board(jogada):
+ 
+  t = ["__________________","|     |     |     |","|  "+ jogada[0] +"  |  " + jogada[1] + "  |  "+ jogada[2] +"  |","___________________","|  "+ jogada[3] +"  |  " + jogada[4] + "  |  "+ jogada[5] +"  |","|  "+ jogada[6] +"  |  " + jogada[7] + "  |  "+ jogada[8] +"  |"]
+  print(t[0]) 
+  print(t[1]) 
+  print(t[5]) 
+  print(t[1])
+  print(t[0]) 
+  print(t[1]) 
+  print(t[4]) 
+  print(t[1]) 
+  print(t[0]) 
+  print(t[1]) 
+  print(t[2]) 
+  print(t[1])
+  print(t[3])
+
+display_board(jogada)
+
+def player_input():
+  player1 = input("Please pick a marker 'X' or 'O':   " )
+    if player1 = "X"
+      player2 = "O"
+
+  return player1
+
+
+display_board(jogada)
+
+def place_marker(board, marker, position):
+  position = int(input('Escolha sua jogada: ')) 
+  marker = player1  
+  jogada[position-1] = marker
+
+
+
+#função para definir o jogador
+
+player1 = None 
+while (player1 != "X" or player1 != "O"):
+  
+  player1 = input("Please pick a marker 'X' or 'O':   " )
+  if player1 == "X":
+   player2 = "O"
+  elif player1 == "O":
+    player2 = "X" 
+  else:
+    print("Vc utilizou um digito inválido, por favor tente novamente") print("\n")   
+    continue
+  break
+print(player1)
+print(player2)
+
+ 
