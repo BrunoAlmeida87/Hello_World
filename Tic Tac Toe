@@ -111,4 +111,11 @@ def full_board_check(board):
        
         continue
     return False
+    
+    #Função para checar se alguem venceu
+    def win_check(jogada, mark):
+    if jogada[0]==jogada[1]==jogada[2] or jogada[3]==jogada[4]==jogada[5] or jogada[6]==jogada[7]==jogada[8] or jogada[0]==jogada[3]==jogada[6] or jogada[1]==jogada[4]==jogada[7] or jogada[2]==jogada[5]==jogada[8] or jogada[0]==jogada[4]==jogada[7] or jogada[3]==jogada[5]==jogada[7]: 
+        print("Venceu")
+    else:
+        print("Ainda não")
         
