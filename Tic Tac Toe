@@ -21,14 +21,14 @@ def display_board(jogada):
   print(t[3])
 
 display_board(jogada)
-
+--------------------------------------------------------------------------------------------------------
 def player_input():
   player1 = input("Please pick a marker 'X' or 'O':   " )
     if player1 = "X"
       player2 = "O"
 
   return player1
-
+--------------------------------------------------------------------------------------------------------
 
 display_board(jogada)
 
@@ -37,7 +37,7 @@ def place_marker(board, marker, position):
   marker = player1  
   jogada[position-1] = marker
 
-
+--------------------------------------------------------------------------------------------------------
 
 player1 = None 
 while (player1 != "X" or player1 != "O"):
@@ -56,6 +56,8 @@ while (player1 != "X" or player1 != "O"):
 print("\n") 
 print(jogador1 + " será o " + player1.upper())
 print(jogador2 + " será o " + player2.upper())
+
+--------------------------------------------------------------------------------------------------------
 
  #Função para definição das jogadas
 # O ícono já estara difinido pelos jogadores
@@ -82,7 +84,7 @@ else:
     print(jogada)
     vez += 1
     print(vez)
-    
+    --------------------------------------------------------------------------------------------------------
     
     #função que checa se há espaço livre para o jogador inserir sua jogada
 #space_check(jogada,5)  
@@ -94,7 +96,7 @@ def space_check(jogada, position):
         return True
     else:
         return False
-        
+ --------------------------------------------------------------------------------------------------------       
         
          #função que checa se todos os espaços já foram ocupados
     #Retorna True se tiver espaço
@@ -111,14 +113,14 @@ def full_board_check(board):
        
         continue
     return False
-    
+--------------------------------------------------------------------------------------------------------  
     #Função para checar se alguem venceu
     def win_check(jogada, mark):
     if jogada[0]==jogada[1]==jogada[2] or jogada[3]==jogada[4]==jogada[5] or jogada[6]==jogada[7]==jogada[8] or jogada[0]==jogada[3]==jogada[6] or jogada[1]==jogada[4]==jogada[7] or jogada[2]==jogada[5]==jogada[8] or jogada[0]==jogada[4]==jogada[7] or jogada[3]==jogada[5]==jogada[7]: 
         print("Venceu")
     else:
         print("Ainda não")
-        
+   --------------------------------------------------------------------------------------------------------     
  
  
  #Função para escolher quem começa primeiro
