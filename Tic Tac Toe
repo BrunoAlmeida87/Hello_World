@@ -107,17 +107,24 @@ def space_check(jogada, position):
     #Retorna True se tiver espaço
     # Falso se não tiver espaço
  
+#Se for True, acabaram os espaços e o jogo deu empate
+#jogada = ["1",'2','3','4','5','6','7','8','9']
+#jogada = ['#','X','X','X','X','O','O','O','X','X']
 def full_board_check(jogada):
- #jogada = ["1",'b','c','d','e','f','g','h','i']
- for x in jogada:
-    if( x.isdigit()):
-      print(x)
-      return True
-    else:
-      return False
-
-print(full_board_check(jogada))
-
+  cont = 0
+  for item in jogada:
+    if item == "X" or item == "O":
+      cont += 1
+      #print(cont)
+    
+  if cont == 9:
+    #print(cont, "teste2")
+    return  True
+  else:
+    #print(cont,"teste")    
+    return False
+    #print(cont)    
+#print(full_board_check(jogada))
 --------------------------------------------------------------------------------------------------------
 #8
 
