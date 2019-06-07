@@ -1,0 +1,213 @@
+print('Welcome to Tic Tac Toe!')
+print("\n")
+
+#Declaração das funções:
+
+#jogada = [#,'1','2','3','4','5','6','7','8','9']
+def display_board(jogada):
+ 
+  t = ["__________________","|     |     |     |","|  "+ jogada[1] +"  |  " + jogada[2] + "  |  "+ jogada[3] +"  |","___________________","|  "+ jogada[4] +"  |  " + jogada[5] + "  |  "+ jogada[6] +"  |","|  "+ jogada[7] +"  |  " + jogada[8] + "  |  "+ jogada[9] +"  |"]
+  print(t[0]) 
+  print(t[1]) 
+  print(t[5]) 
+  print(t[1])
+  print(t[0]) 
+  print(t[1]) 
+  print(t[4]) 
+  print(t[1]) 
+  print(t[0]) 
+  print(t[1]) 
+  print(t[2]) 
+  print(t[1])
+  print(t[3])
+
+
+#--------------------------------------------------------------------------------------------------------2
+#2
+def player_input():
+  player1 = None 
+  while (player1 != "X" or player1 != "O"):
+   jogador1 = input("Diga o nome do primeiro jogador: ").upper()
+   jogador2 = input("Diga o nome do segundo jogador: ").upper()
+   player1 = input("Please pick a marker 'X' or 'O':   " )
+  if player1 == "X":
+   player2 = "O"
+  elif player1 == "O":
+    player2 = "X" 
+  else:
+    print("Vc utilizou um digito inválido, por favor tente novamente") 
+    print("\n")   
+    print(jogador1 + " será o " + player1.upper())
+    print(jogador2 + " será o " + player2.upper())
+  return ( player1, player2)
+ 
+#-------------------------------------------------------------------------------------------------------
+#3
+
+#jogada = [1,2,3,4,4,5,6,7,]
+def place_marker(jogada, marker, position):
+  jogada[position] = marker
+  return jogada
+
+
+#-------------------------------------------------------------------------------------------------------
+ #4
+ #Função para checar se alguem venceu
+def win_check(jogada, marker):
+  
+  if jogada[1]==jogada[2]==jogada[3] or jogada[4]==jogada[5]==jogada[6] or jogada[7]==jogada[8]==jogada[9] or jogada[1]==jogada[4]==jogada[7] or jogada[2]==jogada[5]==jogada[8] or jogada[3]==jogada[6]==jogada[9] or jogada[1]==jogada[5]==jogada[9] or jogada[3]==jogada[5]==jogada[7]: 
+    return True
+  else:
+    return False
+
+#if win_check(jogada, "X") == True:
+#  print('Uhul')
+#else:
+#  print("nops")  
+
+#--------------------------------------------------------------------------------------------------------
+
+#5
+
+
+ 
+ #Função para escolher quem começa primeiro
+ 
+import random
+
+#def choose_first():
+ # for x in range(1):
+def choose_first():
+  for x in range(1):   
+   if (random.randint(1,2)) == 1:
+    return print("Player1")
+  else:
+    return print("Player2")
+
+#choose_first()
+#--------------------------------------------------------------------------------------------------------
+
+#6
+
+    #função que checa se há espaço livre para o jogador inserir sua jogada
+#space_check(jogada,5)  
+def space_check(jogada, position):
+  if( jogada[position].isdigit()):
+    return True
+  else:
+    return False
+#--------------------------------------------------------------------------------------------------------
+#7
+
+#função que checa se todos os espaços já foram ocupados
+    #Retorna True se tiver espaço
+    # Falso se não tiver espaço
+ 
+#Se for True, acabaram os espaços e o jogo deu empate
+#jogada = ["1",'2','3','4','5','6','7','8','9']
+#jogada = ['#','X','X','X','X','O','O','O','X','X']
+def full_board_check(jogada):
+  cont = 0
+  for item in jogada:
+    if item == "X" or item == "O":
+      cont += 1
+      #print(cont)
+    
+  if cont == 9:
+    #print(cont, "teste2")
+    return  True
+  else:
+    #print(cont,"teste")    
+    return False
+    #print(cont)    
+#print(full_board_check(jogada))
+
+#--------------------------------------------------------------------------------------------------------
+#8
+
+
+
+def player_choice(jogada):
+  print("\n")
+  position = int(input(Turn + ' Escolha sua jogada: ')) 
+  while space_check(jogada, position) == False:
+    print("\n")
+    print("Este local está ocupado, tente outra")
+    position = int(input(Turn + 'Escolha novamente sua jogada: ')) 
+  else :
+    return position
+    
+#print(player_choice(jogada))
+
+
+
+
+
+
+while True:
+  jogada = ['#','1','2','3','4','5','6','7','8','9']
+  print("\n")
+  play_game = input('Vocês está pronto(a) para jogar? Entre Sim ou Não: ')
+
+  if play_game.lower()[0] == "s":
+    game_on = True
+  else:
+    game_on = False  
+  Turn = "Player 1"
+  
+  while game_on:
+    if  Turn == "Player 1":
+      marker = "X"
+      print("\n")
+      display_board(jogada)
+      position = player_choice(jogada)
+      jogada_up = place_marker(jogada, marker, position)
+      if win_check(jogada, marker) == True:
+        display_board(jogada)
+        print("\n")
+        print ("Parabéns, você venceu!")
+        print ("Parabéns, você venceu!")
+        print ("Parabéns, você venceu!")
+        print ("Parabéns, você venceu!")
+        game_on = False
+        #game_on = False
+      else:
+        if full_board_check(jogada) == True: 
+          display_board(jogada)
+          print("\n")
+          print("\n")
+          print ("O jogo deu empate!")
+          print ("O jogo deu empate!")
+          print ("O jogo deu empate!")
+          print ("O jogo deu empate!")
+          break
+        else:
+          Turn = "Player 2"
+    else:
+      marker = "O"
+      print("\n")
+      display_board(jogada)
+      position = player_choice(jogada)
+      jogada = place_marker(jogada, marker, position)
+      if win_check(jogada, marker) == True:
+       display_board(jogada)
+       print("\n")
+       print ("Parabéns, você venceu!")
+       print ("Parabéns, você venceu!")
+       print ("Parabéns, você venceu!")
+       print ("Parabéns, você venceu!")
+       game_on = False
+       game_on = False
+      else:
+        if full_board_check(jogada) == True: 
+          display_board(jogada)
+          print ("O jogo deu empate!")
+          break
+        else:
+          Turn = "Player 1"
+        # Player2's turn.
+            
+            #pass
+
+    #if not replay():
+  #break
